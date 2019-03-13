@@ -16,7 +16,7 @@ export default class App extends Component<Props> {
         return (
             <View style={styles.container}>
                 <Text style={styles.welcome}>
-                    {this.props.pushNotificationRecevied}
+                    Route: {this.props.initialRoute}
                 </Text>
             </View>
         );
@@ -27,8 +27,7 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         justifyContent: "center",
-        alignItems: "center",
-        backgroundColor: "#444"
+        alignItems: "center"
     },
     welcome: {
         fontSize: 20,

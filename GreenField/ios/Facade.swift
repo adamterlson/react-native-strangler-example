@@ -9,9 +9,10 @@
 import UIKit
 
 class Facade: NSObject {
-  public var isAppUser = true
-  
   var window: UIWindow
+  
+  public var canDoLaunch = false
+  public var canDoMessages = true
 
   init(_ window: UIWindow) {
     self.window = window
@@ -45,11 +46,7 @@ class Facade: NSObject {
       return
     }
     
-    // Comment out lines to load RN first
-    legacyCallback()
-    return
-    
-    if !isAppUser {
+    if !canDoLaunch {
       legacyCallback()
       return
     }
@@ -65,8 +62,9 @@ class Facade: NSObject {
       assertionFailure("Invalid callback: \(object)")
       return
     }
+    print("Hello")
     
-    if !isAppUser {
+    if !canDoMessages {
       legacyCallback()
       return
     }

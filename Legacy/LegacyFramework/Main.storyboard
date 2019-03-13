@@ -38,7 +38,7 @@
                                 <rect key="frame" x="134" y="318.5" width="107" height="30"/>
                                 <state key="normal" title="View Messages"/>
                                 <connections>
-                                    <action selector="onLoginPress:" destination="One-62-TtC" eventType="touchUpInside" id="aHp-Ut-Vjb"/>
+                                    <action selector="onViewMessagesPress:" destination="One-62-TtC" eventType="touchUpInside" id="aHp-Ut-Vjb"/>
                                 </connections>
                             </button>
                         </subviews>
