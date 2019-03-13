@@ -4,3 +4,7 @@ This is a proof of concept implementation of the strangler pattern in React Nati
 
 Adam Terlson (@adamterlson)
 Marcus Österberg (@osterbergmarcus)
+
+### TODO
+- [x] iOS
+- [ ] Android
