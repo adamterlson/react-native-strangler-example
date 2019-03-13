@@ -7,25 +7,27 @@ open class AppDelegate: UIResponder, UIApplicationDelegate  {
     open var window: UIWindow?
 
     open func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
-        var rootViewController: UIViewController
+        NotificationCenter.default.post(name: Notification.Name("DidLaunch"), object: { () -> () in
+            // Override point for customization after application launch.
+            var rootViewController: UIViewController
 
-        let storyboardName = "Main"
-        let storyboardBundle = Bundle(for: AppDelegate.self)
-        let storyboard = UIStoryboard(name: storyboardName, bundle: storyboardBundle)
-        rootViewController = storyboard.instantiateViewController(withIdentifier: "main")
+            let storyboardName = "Main"
+            let storyboardBundle = Bundle(for: AppDelegate.self)
+            let storyboard = UIStoryboard(name: storyboardName, bundle: storyboardBundle)
+            rootViewController = storyboard.instantiateViewController(withIdentifier: "main")
 
-        window = UIWindow(frame: UIScreen.main.bounds)
-        window?.rootViewController = rootViewController
-        window?.makeKeyAndVisible()
-        
-        let notification = UILocalNotification()
-        
-        notification.fireDate = Date(timeIntervalSinceNow: 3)          // Sets the fire date
-        notification.alertBody = "Enjoyed your lunch? Don't forget to track your expenses!"
-        notification.alertAction = "Add expense"
-        
-        application.scheduleLocalNotification(notification)
+            self.window = UIWindow(frame: UIScreen.main.bounds)
+            self.window?.rootViewController = rootViewController
+            self.window?.makeKeyAndVisible()
+            
+            let notification = UILocalNotification()
+            
+            notification.fireDate = Date(timeIntervalSinceNow: 3)          // Sets the fire date
+            notification.alertBody = "Enjoyed your lunch? Don't forget to track your expenses!"
+            notification.alertAction = "Add expense"
+            
+            application.scheduleLocalNotification(notification)
+        })
  
         return true
     }

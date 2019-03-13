@@ -5,20 +5,14 @@ import UserNotifications
 @UIApplicationMain
 // Extend from the Legacy's AppDelegate
 class AppDelegate: LegacyFramework.AppDelegate {
-  var launchGreenField: LaunchGreenField!
+  var facade: Facade!
   // Override methods only when they become relevant
   override func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
     window = UIWindow(frame: UIScreen.main.bounds)
-    launchGreenField = LaunchGreenField(self.window!)
+    facade = Facade(self.window!)
     
-      // Use a "Facade" to determine request handler
-      if Facade.isAppUser() {
-        return super.application(application, didFinishLaunchingWithOptions: launchOptions)
-      } else {
-        launchGreenField.launch()
-        return true
-      }
+    return super.application(application, didFinishLaunchingWithOptions: launchOptions)
   }
   
   override func application(_ application: UIApplication, didReceive notification: UILocalNotification) {

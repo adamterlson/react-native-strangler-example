@@ -35,8 +35,8 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h0e-xw-Tli">
-                                <rect key="frame" x="168.5" y="318.5" width="38" height="30"/>
-                                <state key="normal" title="Login"/>
+                                <rect key="frame" x="134" y="318.5" width="107" height="30"/>
+                                <state key="normal" title="View Messages"/>
                                 <connections>
                                     <action selector="onLoginPress:" destination="One-62-TtC" eventType="touchUpInside" id="aHp-Ut-Vjb"/>
                                 </connections>
