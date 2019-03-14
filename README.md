@@ -2,8 +2,8 @@
 
 This is a proof of concept implementation of the strangler pattern in React Native based on the talk, "Strangling Legacy Apps with React Native" ([slides](https://slides.com/adamterlson/strangler)).
 
-Adam Terlson (@adamterlson)
-Marcus Österberg (@osterbergmarcus)
+Adam Terlson [@adamterlson](https://twitter.com/adamterlson)
+Marcus Österberg [@osterbergmarcus](https://twitter.com/osterbergmarcus)
 
 ### TODO
 - [x] iOS
