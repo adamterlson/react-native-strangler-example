@@ -55,11 +55,14 @@ open class AppDelegate: UIResponder, UIApplicationDelegate  {
     
     open func application(_ application: UIApplication,
                           didReceive notification: UILocalNotification) {
-        let alert = UIAlertController(title: "Legacy Push Handler", message: "Can we strangle this yet?", preferredStyle: .alert)
-        
-        alert.addAction(UIAlertAction(title: "Close", style: .cancel, handler: nil))
-        
-        window?.rootViewController!.present(alert, animated: true)
+        NotificationCenter.default.post(name: Notification.Name("PushNotification"), object: { () -> () in
+            
+            let alert = UIAlertController(title: "Legacy Push Handler", message: "Can we strangle this yet?", preferredStyle: .alert)
+            
+            alert.addAction(UIAlertAction(title: "Close", style: .cancel, handler: nil))
+            
+            self.window?.rootViewController!.present(alert, animated: true)
+        })
     }
 
 }

@@ -10,19 +10,20 @@ import UIKit
 
 class Facade: NSObject {
   var window: UIWindow
+  var rnEmitter: RNEventEmitter
   
   public var canDoLaunch = false
   public var canDoMessages = true
 
   init(_ window: UIWindow) {
     self.window = window
+    self.rnEmitter = RNEventEmitter()
     super.init()
     
     NotificationCenter.default.addObserver(self, selector: #selector(self.onDidLaunch(notification:)), name: Notification.Name("DidLaunch"), object: nil)
     NotificationCenter.default.addObserver(self, selector: #selector(self.onButtonPress(notification:)), name: Notification.Name("ButtonPress"), object: nil)
+    NotificationCenter.default.addObserver(self, selector: #selector(self.onPushNotification(notification:)), name: Notification.Name("PushNotification"), object: nil)
   }
-  
-  // deinit--cleanup
 
   func launchRN(props: Dictionary<String, String>) {
       let jsCodeLocation  = RCTBundleURLProvider.sharedSettings()?.jsBundleURL(forBundleRoot: "index", fallbackResource: nil)
@@ -72,4 +73,14 @@ class Facade: NSObject {
     launchRN(props: props)
   }
   
+  @objc
+  func onPushNotification(notification: Notification) {
+    rnEmitter.sendEvent(withName: "PushNotification", body: [
+      "number": 123.9,
+      "string": "foo",
+      "boolean": true,
+      "array": [1, 22.2, "33"],
+      "object": ["a": 1, "b": 2]
+    ])
+  }
 }
