@@ -62,7 +62,6 @@ class Facade: NSObject {
       assertionFailure("Invalid callback: \(object)")
       return
     }
-    print("Hello")
     
     if !canDoMessages {
       legacyCallback()
