@@ -34,6 +34,8 @@
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 		ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ADBDB9271DFEBF0700ED6528 /* libRCTBlob.a */; };
 		CF1B94D62235A7BB00219769 /* LegacyFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF1B94AE2235A6EC00219769 /* LegacyFramework.framework */; };
+		CF226C142252B918001D44FB /* RNEventEmitter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF226C132252B918001D44FB /* RNEventEmitter.swift */; };
+		CF226C3F2252CD31001D44FB /* RNEventEmitterBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = CF226C3E2252CD31001D44FB /* RNEventEmitterBridge.m */; };
 		CF2F93EA223A5E7B0076D1B8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF2F93E8223A5E7B0076D1B8 /* AppDelegate.swift */; };
 		CF2F93EB223A5E7B0076D1B8 /* Facade.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF2F93E9223A5E7B0076D1B8 /* Facade.swift */; };
 		CFE5542C222F2430008D8B60 /* libRCTPushNotification.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CFE55410222F18C5008D8B60 /* libRCTPushNotification.a */; };
@@ -368,6 +370,8 @@
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
 		ADBDB91F1DFEBF0600ED6528 /* RCTBlob.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTBlob.xcodeproj; path = "../node_modules/react-native/Libraries/Blob/RCTBlob.xcodeproj"; sourceTree = "<group>"; };
 		CF1B94AE2235A6EC00219769 /* LegacyFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LegacyFramework.framework; path = "../../../../Library/Developer/Xcode/DerivedData/Combo-fklaujpzcexdjjguwikrirgehnro/Build/Products/Debug-iphoneos/LegacyFramework.framework"; sourceTree = "<group>"; };
+		CF226C132252B918001D44FB /* RNEventEmitter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RNEventEmitter.swift; sourceTree = "<group>"; };
+		CF226C3E2252CD31001D44FB /* RNEventEmitterBridge.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RNEventEmitterBridge.m; sourceTree = "<group>"; };
 		CF2F93E8223A5E7B0076D1B8 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = GreenField/AppDelegate.swift; sourceTree = "<group>"; };
 		CF2F93E9223A5E7B0076D1B8 /* Facade.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Facade.swift; path = GreenField/Facade.swift; sourceTree = "<group>"; };
 		CFE553FE222F18C4008D8B60 /* RCTPushNotification.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTPushNotification.xcodeproj; path = "../node_modules/react-native/Libraries/PushNotificationIOS/RCTPushNotification.xcodeproj"; sourceTree = "<group>"; };
@@ -519,6 +523,8 @@
 				CF2F93E8223A5E7B0076D1B8 /* AppDelegate.swift */,
 				CF2F93E9223A5E7B0076D1B8 /* Facade.swift */,
 				0F27E660222AE98100BB9EAA /* GreenField-Bridging-Header.h */,
+				CF226C132252B918001D44FB /* RNEventEmitter.swift */,
+				CF226C3E2252CD31001D44FB /* RNEventEmitterBridge.m */,
 			);
 			name = GreenField;
 			sourceTree = "<group>";
@@ -1179,6 +1185,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				CF2F93EA223A5E7B0076D1B8 /* AppDelegate.swift in Sources */,
+				CF226C142252B918001D44FB /* RNEventEmitter.swift in Sources */,
+				CF226C3F2252CD31001D44FB /* RNEventEmitterBridge.m in Sources */,
 				CF2F93EB223A5E7B0076D1B8 /* Facade.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
