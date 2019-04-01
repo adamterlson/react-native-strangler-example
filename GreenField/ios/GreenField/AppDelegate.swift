@@ -11,11 +11,10 @@ class AppDelegate: LegacyFramework.AppDelegate {
 
     window = UIWindow(frame: UIScreen.main.bounds)
     facade = Facade(self.window!)
-    
     return super.application(application, didFinishLaunchingWithOptions: launchOptions)
   }
   
-  override func application(_ application: UIApplication, didReceive notification: UILocalNotification) {
-    RCTPushNotificationManager.didReceive(notification)
-  }
+//  override func application(_ application: UIApplication, didReceive notification: UILocalNotification) {
+//    RCTPushNotificationManager.didReceive(notification)
+//  }
 }

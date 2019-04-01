@@ -1,6 +1,5 @@
 import UIKit
 import UserNotifications
-//import NotificationBannerSwift
 
 open class AppDelegate: UIResponder, UIApplicationDelegate  {
 
@@ -49,22 +48,19 @@ open class AppDelegate: UIResponder, UIApplicationDelegate  {
     private func applicationDidBecomeActive(_ application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
     }
-
+        
     private func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
     
-//    open func userNotificationCenter(_ center: UNUserNotificationCenter,
-//                                willPresent notification: UNNotification,
-//                                withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
-//        print("Hello")
-//    }
-    
     open func application(_ application: UIApplication,
-                     didReceive notification: UILocalNotification) {
-//        let banner = NotificationBanner(title: notification.alertTitle, subtitle:  notification.alertBody, style: .success)
-//        banner.show()
-        //RCTPushNotificationManager.didReceive(notification)
+                          didReceive notification: UILocalNotification) {
+        let alert = UIAlertController(title: "Legacy Push Handler", message: "Can we strangle this yet?", preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: "Close", style: .cancel, handler: nil))
+        
+        window?.rootViewController!.present(alert, animated: true)
     }
+
 }
 
