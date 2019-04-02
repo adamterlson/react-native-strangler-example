@@ -10,7 +10,7 @@ class AppDelegate: LegacyFramework.AppDelegate {
   override func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
     window = UIWindow(frame: UIScreen.main.bounds)
-    facade = Facade(self.window!)
+    Facade.sharedInstance.window = window
     return super.application(application, didFinishLaunchingWithOptions: launchOptions)
   }
   
