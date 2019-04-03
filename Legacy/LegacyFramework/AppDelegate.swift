@@ -21,7 +21,7 @@ open class AppDelegate: UIResponder, UIApplicationDelegate  {
             
             let notification = UILocalNotification()
             
-            notification.fireDate = Date(timeIntervalSinceNow: 3)          // Sets the fire date
+            notification.fireDate = Date(timeIntervalSinceNow: 5)
             notification.alertBody = "Enjoyed your lunch? Don't forget to track your expenses!"
             notification.alertAction = "Add expense"
             

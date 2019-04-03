@@ -1,11 +1,3 @@
-//
-//  LaunchGreenFIeld.swift
-//  GreenField
-//
-//  Created by marcus.oesterberg on 12.03.19.
-//  Copyright © 2019 Facebook. All rights reserved.
-//
-
 import UIKit
 
 class Facade: NSObject {
@@ -13,8 +5,10 @@ class Facade: NSObject {
   
   public var window: UIWindow!
   public var rnEmitter: RNEventEmitter!
-  public var canDoLaunch = false
-  public var canDoMessages = true
+  
+  private var canDoLaunch = false
+  private var canDoMessages = true
+  private var isGreenFieldActive = false
 
   override init() {
     self.window = nil
@@ -27,17 +21,18 @@ class Facade: NSObject {
   }
 
   func launchRN(props: Dictionary<String, String>) {
-      let jsCodeLocation  = RCTBundleURLProvider.sharedSettings()?.jsBundleURL(forBundleRoot: "index", fallbackResource: nil)
-  
-      let rootViewController = UIViewController()
-      rootViewController.view = RCTRootView(
-          bundleURL: jsCodeLocation,
-          moduleName: "GreenField",
-          initialProperties: props
-      )
-  
-      self.window.rootViewController = rootViewController
-      self.window.makeKeyAndVisible()
+    let jsCodeLocation  = RCTBundleURLProvider.sharedSettings()?.jsBundleURL(forBundleRoot: "index", fallbackResource: nil)
+
+    let rootViewController = UIViewController()
+    rootViewController.view = RCTRootView(
+        bundleURL: jsCodeLocation,
+        moduleName: "GreenField",
+        initialProperties: props
+    )
+
+    self.window.rootViewController = rootViewController
+    self.window.makeKeyAndVisible()
+    self.isGreenFieldActive = true
   }
   
   @objc
@@ -76,14 +71,32 @@ class Facade: NSObject {
   
   @objc
   func onPushNotification(notification: Notification) {
-    if (rnEmitter != nil) {
-      rnEmitter.sendEvent(withName: "PushNotification", body: [
-        "number": 123.9,
-        "string": "foo",
-        "boolean": true,
-        "array": [1, 22.2, "33"],
-        "object": ["a": 1, "b": 2]
-      ])
+    guard let legacyCallback = notification.object as? () -> () else {
+      let object = notification.object as Any
+      assertionFailure("Invalid callback: \(object)")
+      return
     }
+    
+    if !isGreenFieldActive || rnEmitter == nil {
+      legacyCallback()
+      return
+    }
+    
+    rnEmitter.sendEvent(withName: "PushNotification", body: [
+      "number": 123.9,
+      "string": "foo",
+      "boolean": true,
+      "array": [1, 22.2, "33"],
+      "object": ["a": 1, "b": 2]
+    ])
   }
 }
+
+//  The following structure can be used to send data to JS
+//  [
+//    "number": 123.9,
+//    "string": "foo",
+//    "boolean": true,
+//    "array": [1, 22.2, "33"],
+//    "object": ["a": 1, "b": 2]
+//  ]
