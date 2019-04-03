@@ -8,35 +8,56 @@
  */
 
 import React, { Component } from "react";
-import { Platform, Alert, StyleSheet, Text, View } from "react-native";
+import {
+  Platform,
+  Alert,
+  StyleSheet,
+  Text,
+  View,
+  NativeModules,
+  NativeEventEmitter
+} from "react-native";
 
-type Props = {};
+const { RNEventEmitter } = NativeModules;
+const emitter = new NativeEventEmitter(RNEventEmitter);
+
+type Props = { initialRoute: String };
 export default class App extends Component<Props> {
-    render() {
-        return (
-            <View style={styles.container}>
-                <Text style={styles.welcome}>
-                    Route: {this.props.initialRoute}
-                </Text>
-            </View>
-        );
-    }
+  componentDidMount() {
+    this.subscription = emitter.addListener(
+      "PushNotification",
+      notification => {
+        alert(notification.message);
+      }
+    );
+  }
+  componentWillUnmount() {
+    subscription.remove();
+  }
+  render() {
+    return (
+      <View style={styles.container}>
+        <Text style={styles.header}>Welcome to the Greenfield!</Text>
+        <Text style={styles.info}>Route: {this.props.initialRoute}</Text>
+      </View>
+    );
+  }
 }
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        justifyContent: "center",
-        alignItems: "center"
-    },
-    welcome: {
-        fontSize: 20,
-        textAlign: "center",
-        margin: 10
-    },
-    instructions: {
-        textAlign: "center",
-        color: "#333333",
-        marginBottom: 5
-    }
+  container: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center"
+  },
+  header: {
+    fontSize: 30,
+    textAlign: "center",
+    marginBottom: 10
+  },
+  info: {
+    textAlign: "center",
+    color: "#333333",
+    marginBottom: 5
+  }
 });

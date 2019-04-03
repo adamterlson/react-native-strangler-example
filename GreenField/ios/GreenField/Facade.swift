@@ -83,11 +83,7 @@ class Facade: NSObject {
     }
     
     rnEmitter.sendEvent(withName: "PushNotification", body: [
-      "number": 123.9,
-      "string": "foo",
-      "boolean": true,
-      "array": [1, 22.2, "33"],
-      "object": ["a": 1, "b": 2]
+      "message": "Strangled Push Notification",
     ])
   }
 }

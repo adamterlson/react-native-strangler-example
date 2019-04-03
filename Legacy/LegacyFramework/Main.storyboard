@@ -35,21 +35,34 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h0e-xw-Tli">
-                                <rect key="frame" x="134" y="318.5" width="107" height="30"/>
-                                <state key="normal" title="View Messages"/>
+                                <rect key="frame" x="130.5" y="318" width="114" height="31"/>
+                                <state key="normal" title="Go To Messages"/>
                                 <connections>
                                     <action selector="onViewMessagesPress:" destination="One-62-TtC" eventType="touchUpInside" id="aHp-Ut-Vjb"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="552-rA-fPR">
+                                <rect key="frame" x="63" y="356" width="249" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="6Jm-rP-t3k"/>
+                                </constraints>
+                                <state key="normal" title="Send Push Notification (3 sec delay)"/>
+                                <connections>
+                                    <action selector="onSendMessagePress:" destination="One-62-TtC" eventType="touchUpInside" id="28E-89-1hR"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="2q7-za-1sX" firstAttribute="bottom" secondItem="552-rA-fPR" secondAttribute="bottom" constant="281" id="Cfg-cj-mcg"/>
+                            <constraint firstItem="552-rA-fPR" firstAttribute="centerX" secondItem="h0e-xw-Tli" secondAttribute="centerX" id="VFV-lB-qBH"/>
                             <constraint firstItem="h0e-xw-Tli" firstAttribute="centerY" secondItem="6FI-bZ-9bo" secondAttribute="centerY" id="Y9M-RJ-Hl6"/>
                             <constraint firstItem="h0e-xw-Tli" firstAttribute="centerX" secondItem="6FI-bZ-9bo" secondAttribute="centerX" id="bF3-8E-T7C"/>
+                            <constraint firstItem="552-rA-fPR" firstAttribute="top" secondItem="h0e-xw-Tli" secondAttribute="bottom" constant="7" id="zNb-Sp-nqd"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="2q7-za-1sX"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Home" id="l35-f1-cVB"/>
+                    <navigationItem key="navigationItem" title="Legacy Home" id="l35-f1-cVB"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pA2-hK-Hcg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -7,5 +7,16 @@ class HomeViewController: UIViewController {
             print("Legacy behavior!")
         })
     }
+    
+    @IBAction
+    func onSendMessagePress(_ sender: Any) {
+        let notification = UILocalNotification()
+        
+        notification.fireDate = Date(timeIntervalSinceNow: 3)
+        notification.alertBody = "Enjoyed your lunch? Don't forget to track your expenses!"
+        notification.alertAction = "Add expense"
+        
+        UIApplication.shared.scheduleLocalNotification(notification)
+    }
 }
 

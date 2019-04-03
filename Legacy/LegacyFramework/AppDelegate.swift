@@ -18,14 +18,6 @@ open class AppDelegate: UIResponder, UIApplicationDelegate  {
             self.window = UIWindow(frame: UIScreen.main.bounds)
             self.window?.rootViewController = rootViewController
             self.window?.makeKeyAndVisible()
-            
-            let notification = UILocalNotification()
-            
-            notification.fireDate = Date(timeIntervalSinceNow: 5)
-            notification.alertBody = "Enjoyed your lunch? Don't forget to track your expenses!"
-            notification.alertAction = "Add expense"
-            
-            application.scheduleLocalNotification(notification)
         })
  
         return true
